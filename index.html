@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brincofest | Renta de inflables para fiestas</title>
+<meta name="description" content="Brincofest: renta de inflables, castillos y toboganes para fiestas infantiles. Cotiza por WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sol:#FFC93C; --azul:#1F6FEB; --rosa:#FF5A8A; --menta:#2EC4B6;
+  --tinta:#1B2A49; --crema:#FFFBF0; --wa:#25D366;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',system-ui,sans-serif;color:var(--tinta);background:var(--crema);line-height:1.6;font-size:1.05rem}
+h1,h2,h3{font-family:'Fredoka',system-ui,sans-serif;line-height:1.15}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--azul);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+
+/* Barra superior */
+header{background:var(--azul);color:#fff}
+header .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px}
+.logo{font-family:'Fredoka',sans-serif;font-weight:700;font-size:1.6rem;text-decoration:none}
+.logo span{color:var(--sol)}
+nav a{margin-left:18px;text-decoration:none;font-weight:700}
+nav a:hover{text-decoration:underline}
+
+/* Portada */
+.hero{background:var(--azul);color:#fff;padding:28px 0 56px;border-radius:0 0 48px 48px}
+.hero h1{font-size:clamp(2rem,5vw,3.4rem);max-width:15ch;margin-bottom:12px}
+.hero p{max-width:46ch;margin-bottom:22px;opacity:.95}
+.btn{display:inline-block;background:var(--sol);color:var(--tinta);font-family:'Fredoka',sans-serif;font-weight:700;padding:13px 26px;border-radius:999px;text-decoration:none;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.wa{background:var(--wa);color:#fff}
+
+/* Carrusel */
+.carousel{position:relative;margin-top:30px;border-radius:28px;overflow:hidden;background:#fff;box-shadow:0 10px 0 var(--sol)}
+.track{display:flex;transition:transform .5s ease}
+.slide{min-width:100%;aspect-ratio:16/9;position:relative;display:grid;place-items:center}
+.slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.slide .ph{font-family:'Fredoka',sans-serif;font-size:clamp(1.2rem,3vw,2rem);color:#fff;text-align:center;padding:20px}
+.slide .ph b{display:block;font-size:3rem}
+.arrow{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border:0;border-radius:50%;background:#fff;color:var(--tinta);font-size:1.4rem;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.arrow.prev{left:12px}.arrow.next{right:12px}
+.dots{position:absolute;bottom:12px;left:0;right:0;display:flex;justify-content:center;gap:8px}
+.dots button{width:12px;height:12px;border-radius:50%;border:2px solid #fff;background:transparent;cursor:pointer;padding:0}
+.dots button[aria-current="true"]{background:#fff}
+
+/* Secciones */
+section{padding:64px 0}
+section h2{font-size:clamp(1.6rem,3.5vw,2.3rem);margin-bottom:8px}
+.lead{margin-bottom:28px;max-width:55ch}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.card{background:#fff;border-radius:22px;padding:24px;border:3px solid var(--tinta)}
+.card:nth-child(1){border-color:var(--rosa)}
+.card:nth-child(2){border-color:var(--menta)}
+.card:nth-child(3){border-color:var(--sol)}
+.card:nth-child(4){border-color:var(--azul)}
+.card .emoji{font-size:2.4rem}
+.card h3{margin:6px 0}
+
+/* Pasos */
+.pasos{background:var(--sol)}
+.pasos ol{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;counter-reset:p}
+.pasos li{counter-increment:p;background:var(--crema);border-radius:22px;padding:22px}
+.pasos li::before{content:counter(p);display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--tinta);color:#fff;font-family:'Fredoka',sans-serif;font-weight:700;margin-bottom:10px}
+.pasos h3{margin-bottom:4px}
+
+/* Contacto */
+.contacto{text-align:center}
+.contacto p{margin:0 auto 22px;max-width:46ch}
+footer{background:var(--tinta);color:#fff;text-align:center;padding:22px 20px;font-size:.95rem}
+
+/* Botón flotante de WhatsApp */
+.wa-float{position:fixed;right:18px;bottom:18px;width:62px;height:62px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 6px 16px rgba(0,0,0,.3);z-index:10;transition:transform .15s}
+.wa-float:hover{transform:scale(1.08)}
+.wa-float svg{width:34px;height:34px;fill:#fff}
+
+@media (max-width:560px){nav{display:none}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#">Brinco<span>fest</span></a>
+    <nav>
+      <a href="#catalogo">Inflables</a>
+      <a href="#como-rentar">Cómo rentar</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <h1>Inflables para que tu fiesta no pare de brincar</h1>
+    <p>Renta de castillos, toboganes y brincolines para fiestas infantiles y eventos. Llegamos, instalamos y recogemos.</p>
+    <a class="btn wa" id="cta-hero" href="#" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+
+    <!-- Carrusel -->
+    <div class="carousel" role="region" aria-roledescription="carrusel" aria-label="Fotos de nuestros inflables">
+      <div class="track" id="track"></div>
+      <button class="arrow prev" id="prev" aria-label="Foto anterior">‹</button>
+      <button class="arrow next" id="next" aria-label="Foto siguiente">›</button>
+      <div class="dots" id="dots"></div>
+    </div>
+  </div>
+</div>
+
+<section id="catalogo">
+  <div class="wrap">
+    <h2>Nuestros inflables</h2>
+    <p class="lead">Elige el que más le guste a tu festejado. Pregúntanos por medidas y disponibilidad.</p>
+    <div class="grid">
+      <div class="card"><div class="emoji">🏰</div><h3>Castillos</h3><p>Los clásicos para brincar sin parar, ideales para los más pequeños.</p></div>
+      <div class="card"><div class="emoji">🛝</div><h3>Toboganes</h3><p>Subir, deslizarse y volver a empezar. Un favorito en cualquier fiesta.</p></div>
+      <div class="card"><div class="emoji">🎪</div><h3>Combos</h3><p>Brincolín con tobogán y área de juego en un solo inflable.</p></div>
+      <div class="card"><div class="emoji">💦</div><h3>Acuáticos</h3><p>Para refrescarse en días de calor. Consulta disponibilidad.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="pasos" id="como-rentar">
+  <div class="wrap">
+    <h2>Cómo rentar</h2>
+    <p class="lead">Reservar es rápido y sin complicaciones.</p>
+    <ol>
+      <li><h3>Escríbenos</h3><p>Dinos la fecha, la dirección y el inflable que te interesa.</p></li>
+      <li><h3>Aparta tu fecha</h3><p>Confirmamos disponibilidad y te explicamos cómo apartar.</p></li>
+      <li><h3>Nosotros instalamos</h3><p>Llegamos, instalamos y recogemos al terminar la fiesta.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="contacto" id="contacto">
+  <div class="wrap">
+    <h2>¿Listo para brincar?</h2>
+    <p>Mándanos un mensaje y te respondemos con precios y disponibilidad para tu fecha.</p>
+    <a class="btn wa" id="cta-contacto" href="#" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+  </div>
+</section>
+
+<footer>© <span id="year"></span> Brincofest. Renta de inflables.</footer>
+
+<!-- Icono flotante de WhatsApp -->
+<a class="wa-float" id="wa-float" href="#" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.04 3C9.4 3 4 8.4 4 15.04c0 2.12.55 4.19 1.6 6.01L4 28l7.1-1.86a12 12 0 0 0 4.94 1.06C22.68 27.2 28 21.8 28 15.16 28 8.4 22.68 3 16.04 3zm0 21.9a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-4.2 1.1 1.12-4.1-.24-.38a9.9 9.9 0 1 1 8.72 4.97zm5.43-7.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.23 1.36.2 1.88.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/></svg>
+</a>
+
+<script>
+/* ====== CONFIGURA AQUÍ ====== */
+// Tu número con código de país y sin signos ni espacios. México: 52 + 10 dígitos
+const WHATSAPP = "52XXXXXXXXXX";
+const MENSAJE  = "Hola Brincofest, me gustaría cotizar la renta de un inflable.";
+
+// Fotos del carrusel: pon tus imágenes en la carpeta "img" del repositorio.
+// Si una foto no existe todavía, se muestra un cuadro de color en su lugar.
+const FOTOS = [
+  { src: "img/foto1.jpg", alt: "Castillo inflable en una fiesta", emoji: "🏰", color: "#FF5A8A" },
+  { src: "img/foto2.jpg", alt: "Tobogán inflable",              emoji: "🛝", color: "#2EC4B6" },
+  { src: "img/foto3.jpg", alt: "Niños brincando",               emoji: "🎉", color: "#FF9F1C" },
+  { src: "img/foto4.jpg", alt: "Combo inflable",                emoji: "🎪", color: "#8E6CEF" }
+];
+/* ============================ */
+
+const link = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(MENSAJE);
+["cta-hero","cta-contacto","wa-float"].forEach(id => document.getElementById(id).href = link);
+document.getElementById("year").textContent = new Date().getFullYear();
+
+/* Carrusel */
+const track = document.getElementById("track");
+const dots  = document.getElementById("dots");
+let actual = 0, timer;
+
+FOTOS.forEach((f, i) => {
+  const s = document.createElement("div");
+  s.className = "slide";
+  s.style.background = f.color;
+  s.innerHTML = '<div class="ph"><b>' + f.emoji + '</b>' + f.alt + '</div>';
+  const img = new Image();
+  img.alt = f.alt;
+  img.onload = () => { s.innerHTML = ""; s.appendChild(img); };
+  img.src = f.src;
+  track.appendChild(s);
+
+  const d = document.createElement("button");
+  d.setAttribute("aria-label", "Ir a la foto " + (i + 1));
+  d.onclick = () => { ir(i); reiniciar(); };
+  dots.appendChild(d);
+});
+
+function ir(n){
+  actual = (n + FOTOS.length) % FOTOS.length;
+  track.style.transform = "translateX(-" + actual * 100 + "%)";
+  [...dots.children].forEach((d, i) => d.setAttribute("aria-current", i === actual));
+}
+function reiniciar(){
+  clearInterval(timer);
+  if (!matchMedia("(prefers-reduced-motion: reduce)").matches)
+    timer = setInterval(() => ir(actual + 1), 4000);
+}
+document.getElementById("prev").onclick = () => { ir(actual - 1); reiniciar(); };
+document.getElementById("next").onclick = () => { ir(actual + 1); reiniciar(); };
+
+/* Deslizar con el dedo en celular */
+let x0 = null;
+track.addEventListener("touchstart", e => x0 = e.touches[0].clientX, {passive:true});
+track.addEventListener("touchend", e => {
+  if (x0 === null) return;
+  const dx = e.changedTouches[0].clientX - x0;
+  if (Math.abs(dx) > 40) { ir(actual + (dx < 0 ? 1 : -1)); reiniciar(); }
+  x0 = null;
+});
+
+ir(0); reiniciar();
+</script>
+</body>
+</html>
